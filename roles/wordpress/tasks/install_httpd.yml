@@ -7,19 +7,19 @@
 #  - epel-release
 #   - yum-utils
 
-- name: Install remi.
-  yum:
-    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-    state: present
-
-- name: Enable EPEL repo
-  command: yum-config-manager --enable remi-php73
-  become: yes
+#- name: Install remi.
+#  apt:
+#    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+#    state: present
+#
+#- name: Enable EPEL repo
+#  command: yum-config-manager --enable remi-php73
+#  become: yes
   
 - name: Install httpd and php
-  yum: name={{ item }} state=present
+  apt: name={{ item }} state=present
   with_items:
-   - httpd
+   - apache2
    - php
    - php-mysql
    - firewalld
