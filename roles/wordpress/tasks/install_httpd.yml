@@ -22,7 +22,17 @@
    - apache2
    - php
    - php-mysql
+   - libapache2-mod-php
+   - php-bcmath
+   - php-curl
+   - php-imagick
+   - php-intl
+   - php-json
+   - php-mbstring
+   - php-xml
+   - php-zip
    - firewalld
+   - mysql-client-core-8.0
 
 #- name: Stop firewalld
 #  service: name=firewalld state=stopped enabled=no
@@ -32,8 +42,8 @@
 - name: insert firewalld rule for httpd
   firewalld: port={{ httpd_port }}/tcp permanent=true state=enabled immediate=yes
 
-  #- name: http service state
-  #service: name=httpd state=started enabled=yes
+- name: http service state
+  service: name=apache2 state=started enabled=yes
 
 #- name: Configure SELinux to allow httpd to connect to remote database
 #  seboolean: name=httpd_can_network_connect_db state=true persistent=yes
