@@ -1,2 +1,5 @@
-- src: https://github.com/santosh-hpe/mariadb-ubuntu.git
+- src: https://github.com/santosh-hpe/mariadb.git
   name: mariadb
+
+- src: https://github.com/santosh-hpe/mariadb_ubuntu.git
+  name: mariadb_ubuntu
